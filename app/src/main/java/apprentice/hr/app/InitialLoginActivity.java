@@ -1,7 +1,13 @@
 package apprentice.hr.app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,6 +26,35 @@ public class InitialLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_initial_login);
 
+        username = findViewById(R.id.username);
+        password = findViewById((R.id.password));
+        btnLogin = findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(
+                        password.getText().toString())) {
+                    Toast.makeText(InitialLoginActivity.this, "Empty data provided",
+                            Toast.LENGTH_LONG).show();
+                } else if (username.getText().toString().equals(correct_username)) {
+                    if (password.getText().toString().equals(correct_password)) {
+                        Toast.makeText(InitialLoginActivity.this, "Success",
+                                Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(InitialLoginActivity.this,
+                                "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(InitialLoginActivity.this,
+                            "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }
+
