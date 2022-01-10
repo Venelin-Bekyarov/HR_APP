@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -44,10 +46,31 @@ public class InitialLoginActivity extends AppCompatActivity {
                     if (password.getText().toString().equals(correct_password)) {
                         Toast.makeText(InitialLoginActivity.this, "Success",
                                 Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(
+                                InitialLoginActivity.this);
+                        builder.setMessage("Are you sure you want to log in?").setCancelable(
+                                false).setPositiveButton("Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        //
+                                    }
+                                }).setNegativeButton("No",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
 
+                                        InitialLoginActivity.this.finish();
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                        alert.getButton(alert.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FF0000"));
+                        alert.getButton(alert.BUTTON_POSITIVE).setTextColor(Color.parseColor("#008000"));
                     } else {
                         Toast.makeText(InitialLoginActivity.this,
                                 "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
+
                     }
                 } else {
                     Toast.makeText(InitialLoginActivity.this,
@@ -57,4 +80,3 @@ public class InitialLoginActivity extends AppCompatActivity {
         });
     }
 }
-
