@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -22,8 +23,11 @@ public class InitialLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button btnLogin;
 
-    String correct_username = "HRTeam@edynamix.com";
-    String correct_password = "HR_admin1";
+    String correct_username = "1";
+    String correct_password = "1";
+
+//    String correct_username = "HRTeam@edynamix.com";
+//    String correct_password = "HR_admin1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,8 @@ public class InitialLoginActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById((R.id.password));
         btnLogin = findViewById(R.id.btnLogin);
+
+        final LoadingDialog loadingDialog = new LoadingDialog(InitialLoginActivity.this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,18 +52,28 @@ public class InitialLoginActivity extends AppCompatActivity {
                     if (password.getText().toString().equals(correct_password)) {
                         Toast.makeText(InitialLoginActivity.this, "Success",
                                 Toast.LENGTH_LONG).show();
+
                         AlertDialog.Builder builder = new AlertDialog.Builder(
                                 InitialLoginActivity.this);
                         builder.setMessage("Are you sure you want to log in?").setCancelable(
                                 false).setPositiveButton("Yes",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        //
+                                        loadingDialog.startLoadingDialog();
+                                        Handler handler = new Handler();
+                                        handler.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent = new Intent(InitialLoginActivity.this, HomePageActivity.class);
+                                                startActivity(intent);
+                                                loadingDialog.dismissDialog();
+                                            }
+                                        }, 3000);
+
                                     }
                                 }).setNegativeButton("No",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-
                                         InitialLoginActivity.this.finish();
                                         dialog.cancel();
                                     }
@@ -67,6 +83,7 @@ public class InitialLoginActivity extends AppCompatActivity {
                         alert.show();
                         alert.getButton(alert.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FF0000"));
                         alert.getButton(alert.BUTTON_POSITIVE).setTextColor(Color.parseColor("#008000"));
+
                     } else {
                         Toast.makeText(InitialLoginActivity.this,
                                 "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
