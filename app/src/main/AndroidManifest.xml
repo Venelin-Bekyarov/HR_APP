@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HR_APP" >
         <activity
-            android:name=".LoadingDialog"
-            android:exported="false" />
-        <activity
             android:name=".HomePageActivity"
             android:exported="false" />
         <activity
