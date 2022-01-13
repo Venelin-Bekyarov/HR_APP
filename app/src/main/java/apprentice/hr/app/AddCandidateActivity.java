@@ -2,6 +2,7 @@ package apprentice.hr.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +12,17 @@ public class AddCandidateActivity extends AppCompatActivity {
 
     EditText editTextName, editTextPhone, editTextPosition, editTextSkills, editTextDate;
     Button add_candidate_data_btn;
+    Button back_list_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_candidate);
+        back_list_btn = findViewById(R.id.back_list_btn);
+        back_list_btn.setOnClickListener(v -> {
+            Intent intent = new Intent(AddCandidateActivity.this, HomePageActivity.class);
+            startActivity(intent);
+        });
 
         editTextName = findViewById(R.id.editTextName);
         editTextPhone = findViewById(R.id.editTextPhone);

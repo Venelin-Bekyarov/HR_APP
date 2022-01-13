@@ -1,5 +1,6 @@
 package apprentice.hr.app;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,10 +45,19 @@ public class HomePageActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(HomePageActivity.this, candidate_id, candidate_name, candidate_phone, candidate_position, candidate_skills, candidate_date);
+        customAdapter = new CustomAdapter(HomePageActivity.this, this, candidate_id, candidate_name, candidate_phone, candidate_position, candidate_skills, candidate_date);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(HomePageActivity.this));
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            recreate();
+        }
+    }
+
     void storeDataInArrays(){
         Cursor cursor = myDB.readAllData();
         if (cursor.getCount()==0){

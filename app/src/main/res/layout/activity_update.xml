@@ -8,7 +8,7 @@
     android:padding="30sp">
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextName2"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="80dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextPhone2"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -29,10 +29,10 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextName2" />
 
     <EditText
-        android:id="@+id/editTextPosition"
+        android:id="@+id/editTextPosition2"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -41,10 +41,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone2" />
 
     <EditText
-        android:id="@+id/editTextSkills"
+        android:id="@+id/editTextSkills2"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -53,10 +53,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPosition" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPosition2" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/editTextDate2"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -65,28 +65,28 @@
         android:inputType="date|datetime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSkills" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSkills2" />
 
     <Button
-        android:id="@+id/add_candidate_data_btn"
+        android:id="@+id/update_btn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
-        android:text="Add"
+        android:text="Update"
         android:textSize="18sp"
         android:background="@color/light_gray"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
 
-    <Button
-        android:id="@+id/back_list_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Back To List"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="@+id/editTextName"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/back_list_btn2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:text="Back To List"-->
+<!--        android:textAllCaps="false"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/editTextName2"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

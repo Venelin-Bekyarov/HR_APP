@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/candidate_button"
-        android:layout_width="110dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="28dp"
         android:text="Add Candidate"
         android:textSize="12sp"
@@ -19,10 +19,10 @@
 
     <Button
         android:id="@+id/employee_button"
-        android:layout_width="110dp"
-        android:layout_height="49dp"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="2dp"
         android:text="Add Employee"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"

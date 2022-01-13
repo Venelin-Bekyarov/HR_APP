@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HR_APP">
-
+        <activity
+            android:name=".UpdateActivity"
+            android:exported="false" />
         <activity
             android:name=".AddCandidateActivity"
+            android:exported="false"
             android:label="Add Candidate"
-            android:parentActivityName=".HomePageActivity"
-            android:exported="false" />
+            android:parentActivityName=".HomePageActivity" />
         <activity
             android:name=".HomePageActivity"
             android:exported="false"
