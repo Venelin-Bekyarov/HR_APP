@@ -11,6 +11,7 @@
         android:theme="@style/Theme.HR_APP">
         <activity
             android:name=".UpdateActivity"
+            android:parentActivityName=".HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".AddCandidateActivity"
