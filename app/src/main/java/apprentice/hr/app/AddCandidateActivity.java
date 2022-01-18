@@ -16,7 +16,7 @@ import java.util.Calendar;
 
 public class AddCandidateActivity extends AppCompatActivity {
 
-    EditText editTextName, editTextPhone, editTextPosition, editTextSkills, editTextDate, mDateFormat;
+    EditText editTextName, editTextPhone, editTextPosition, editTextSkills, mDateFormat;
     Button add_candidate_data_btn;
     Button back_list_btn;
     DatePickerDialog.OnDateSetListener onDateSetListener;
@@ -35,7 +35,7 @@ public class AddCandidateActivity extends AppCompatActivity {
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextPosition = findViewById(R.id.editTextPosition);
         editTextSkills = findViewById(R.id.editTextSkills);
-        //editTextDate = findViewById(R.id.editTextDate);
+        mDateFormat = findViewById(R.id.editTextDate);
         add_candidate_data_btn = findViewById(R.id.add_candidate_data_btn);
         add_candidate_data_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class AddCandidateActivity extends AppCompatActivity {
                         editTextPhone.getText().toString().trim(),
                         editTextPosition.getText().toString().trim(),
                         editTextSkills.getText().toString().trim(),
-                        editTextDate.getText().toString().trim());
+                        mDateFormat.getText().toString().trim());
 
             }
         });
