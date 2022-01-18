@@ -38,7 +38,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_PHONE + " TEXT, " +
                         COLUMN_POSITION + " TEXT, " +
                         COLUMN_SKILLS + " TEXT, " +
-                        COLUMN_DATE + " INTEGER);";
+                        COLUMN_DATE + " TEXT);";
         db.execSQL(query);
 
     }
@@ -49,7 +49,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addCandidate(String name, String phone, String position, String skills, int date){
+    void addCandidate(String name, String phone, String position, String skills, String date){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -95,7 +95,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     void deleteOneLine(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME,"_id?", new String[]{row_id});
+        long result = db.delete(TABLE_NAME,"_id=?", new String[]{row_id});
         if (result == -1){
             Toast.makeText(context, "Failed to Delete!", Toast.LENGTH_SHORT).show();
         }else{
