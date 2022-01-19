@@ -73,6 +73,7 @@ public class UpdateActivity extends AppCompatActivity {
                         UpdateActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         onDateSetListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
                 datePickerDialog.show();
 
             }
@@ -125,6 +126,7 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 DatabaseHelper myDB = new DatabaseHelper(UpdateActivity.this);
                 myDB.deleteOneLine(id);
+                finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

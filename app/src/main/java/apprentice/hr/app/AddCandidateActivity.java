@@ -64,6 +64,7 @@ public class AddCandidateActivity extends AppCompatActivity {
                         AddCandidateActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         onDateSetListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
                 datePickerDialog.show();
 
             }

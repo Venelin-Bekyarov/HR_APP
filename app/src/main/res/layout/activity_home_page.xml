@@ -9,8 +9,8 @@
     <Button
         android:id="@+id/candidate_button"
         android:layout_width="120dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="2dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="28dp"
         android:text="Add Candidate"
         android:textSize="12sp"
@@ -20,19 +20,31 @@
     <Button
         android:id="@+id/employee_button"
         android:layout_width="120dp"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:text="Add Employee"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="77dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:paddingTop="?actionBarSize"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="411dp"
+        android:layout_height="661dp"
+        android:paddingTop="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
