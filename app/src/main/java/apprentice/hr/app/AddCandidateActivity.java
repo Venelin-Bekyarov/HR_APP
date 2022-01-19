@@ -62,7 +62,7 @@ public class AddCandidateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         AddCandidateActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        onDateSetListener, day, month, year);
+                        onDateSetListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
 
@@ -70,7 +70,7 @@ public class AddCandidateActivity extends AppCompatActivity {
         });
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int dayOfMonth, int month, int year) {
+            public void onDateSet(DatePicker datePicker, int year , int month, int dayOfMonth) {
                 month = month + 1;
                 String date = dayOfMonth + "/" + month + "/" + year;
                 mDateFormat.setText(date);
