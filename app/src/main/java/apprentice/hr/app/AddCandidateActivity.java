@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -37,6 +39,10 @@ public class AddCandidateActivity extends AppCompatActivity {
         editTextSkills = findViewById(R.id.editTextSkills);
         mDateFormat = findViewById(R.id.editTextDate);
         add_candidate_data_btn = findViewById(R.id.add_candidate_data_btn);
+
+
+
+
         add_candidate_data_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,5 +84,30 @@ public class AddCandidateActivity extends AppCompatActivity {
             }
         };
 
+        editTextName.addTextChangedListener(AddTextWatcher);
+        editTextPhone.addTextChangedListener(AddTextWatcher);
+        editTextPosition.addTextChangedListener(AddTextWatcher);
+
     }
+    private TextWatcher AddTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String nameInput = editTextName.getText().toString();
+            String phoneInput = editTextPhone.getText().toString();
+            String positionInput = editTextPosition.getText().toString();
+            String dateInput = mDateFormat.getText().toString();
+
+            add_candidate_data_btn.setEnabled(!nameInput.isEmpty() && !phoneInput.isEmpty() && positionInput.isEmpty() && dateInput.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 }
