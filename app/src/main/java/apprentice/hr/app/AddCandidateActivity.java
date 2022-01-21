@@ -87,6 +87,7 @@ public class AddCandidateActivity extends AppCompatActivity {
         editTextName.addTextChangedListener(AddTextWatcher);
         editTextPhone.addTextChangedListener(AddTextWatcher);
         editTextPosition.addTextChangedListener(AddTextWatcher);
+        mDateFormat.addTextChangedListener(AddTextWatcher);
 
     }
     private TextWatcher AddTextWatcher = new TextWatcher() {
@@ -102,7 +103,7 @@ public class AddCandidateActivity extends AppCompatActivity {
             String positionInput = editTextPosition.getText().toString();
             String dateInput = mDateFormat.getText().toString();
 
-            add_candidate_data_btn.setEnabled(!nameInput.isEmpty() && !phoneInput.isEmpty() && positionInput.isEmpty() && dateInput.isEmpty());
+            add_candidate_data_btn.setEnabled(!nameInput.isEmpty() && !phoneInput.isEmpty() && !positionInput.isEmpty() && !dateInput.isEmpty());
         }
 
         @Override
