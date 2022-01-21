@@ -14,6 +14,7 @@
         android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="Candidate Name"
+        android:background="@drawable/add_cand_error_bgr"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +27,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Phone Number"
+        android:background="@drawable/add_cand_error_bgr"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +40,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Position"
+        android:background="@drawable/add_cand_error_bgr"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +69,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:hint="Date"
+        android:background="@drawable/add_cand_error_bgr"
         android:inputType="date|datetime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,5 +99,7 @@
         app:layout_constraintStart_toStartOf="@+id/editTextName"
         app:layout_constraintTop_toTopOf="parent" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

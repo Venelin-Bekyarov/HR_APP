@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -48,6 +50,7 @@ public class UpdateActivity extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 DatabaseHelper myDB = new DatabaseHelper(UpdateActivity.this);
                 name = name_input.getText().toString().trim();
                 phone = phone_input.getText().toString().trim();
@@ -73,7 +76,7 @@ public class UpdateActivity extends AppCompatActivity {
                         UpdateActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         onDateSetListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
 
             }
@@ -93,7 +96,10 @@ public class UpdateActivity extends AppCompatActivity {
                 confirmDialog();
             }
         });
-
+        name_input.addTextChangedListener(AddTextWatcher);
+        phone_input.addTextChangedListener(AddTextWatcher);
+        position_input.addTextChangedListener(AddTextWatcher);
+        mDateFormat.addTextChangedListener(AddTextWatcher);
 
     }
 
@@ -117,7 +123,7 @@ public class UpdateActivity extends AppCompatActivity {
         }
     }
 
-    void confirmDialog(){
+    void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + name + " ?");
         builder.setMessage("Are you sure you want to delete " + name + " ?");
@@ -137,4 +143,28 @@ public class UpdateActivity extends AppCompatActivity {
         });
         builder.create().show();
     }
+
+    private TextWatcher AddTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String nameUpdt = name_input.getText().toString();
+            String phoneUpdt = phone_input.getText().toString();
+            String positionUpdt = position_input.getText().toString();
+            String dateUpdt = mDateFormat.getText().toString();
+
+
+
+            update_button.setEnabled(!nameUpdt.isEmpty() && !phoneUpdt.isEmpty() && !positionUpdt.isEmpty() && !dateUpdt.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 }

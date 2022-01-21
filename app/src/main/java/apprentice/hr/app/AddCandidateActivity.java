@@ -46,6 +46,9 @@ public class AddCandidateActivity extends AppCompatActivity {
         add_candidate_data_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 DatabaseHelper myDB = new DatabaseHelper(AddCandidateActivity.this);
                 myDB.addCandidate(editTextName.getText().toString().trim(),
                         editTextPhone.getText().toString().trim(),
@@ -102,6 +105,31 @@ public class AddCandidateActivity extends AppCompatActivity {
             String phoneInput = editTextPhone.getText().toString();
             String positionInput = editTextPosition.getText().toString();
             String dateInput = mDateFormat.getText().toString();
+
+            if(editTextName.getText().toString().isEmpty()){
+                editTextName.setError("mandatory field");
+                editTextName.setBackgroundResource(R.drawable.add_cand_error_bgr);
+            }else {
+                editTextName.setBackgroundResource(R.drawable.add_cand_normal_bgr);
+            }
+            if(editTextPhone.getText().toString().isEmpty()){
+                editTextPhone.setError("mandatory field");
+                editTextPhone.setBackgroundResource(R.drawable.add_cand_error_bgr);
+            }else {
+                editTextPhone.setBackgroundResource(R.drawable.add_cand_normal_bgr);
+            }
+            if(editTextPosition.getText().toString().isEmpty()){
+                editTextPosition.setError("mandatory field");
+                editTextPosition.setBackgroundResource(R.drawable.add_cand_error_bgr);
+            }else {
+                editTextPosition.setBackgroundResource(R.drawable.add_cand_normal_bgr);
+            }
+            if(mDateFormat.getText().toString().isEmpty()){
+                mDateFormat.setError("mandatory field");
+                mDateFormat.setBackgroundResource(R.drawable.add_cand_error_bgr);
+            }else {
+                mDateFormat.setBackgroundResource(R.drawable.add_cand_normal_bgr);
+            }
 
             add_candidate_data_btn.setEnabled(!nameInput.isEmpty() && !phoneInput.isEmpty() && !positionInput.isEmpty() && !dateInput.isEmpty());
         }
