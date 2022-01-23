@@ -18,6 +18,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Button candidate_button;
+    Button employee_button;
     Button logout_button;
 
     DatabaseHelper myDB;
@@ -34,8 +35,12 @@ public class HomePageActivity extends AppCompatActivity {
             Intent intent = new Intent(HomePageActivity.this, AddCandidateActivity.class);
             startActivity(intent);
 
-
         });
+        employee_button = findViewById(R.id.employee_button);
+        employee_button.setOnClickListener(v -> {
+                    Intent intent = new Intent(HomePageActivity.this, EmployeeActivity.class);
+                    startActivity(intent);
+                });
 
         logout_button = findViewById(R.id.logout_button);
         logout_button.setOnClickListener(v -> {

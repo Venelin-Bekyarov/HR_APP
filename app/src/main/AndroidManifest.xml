@@ -19,6 +19,11 @@
             android:label="Add Candidate"
             android:parentActivityName=".HomePageActivity" />
         <activity
+            android:name=".EmployeeActivity"
+            android:exported="false"
+            android:label="Add Employee"
+            android:parentActivityName=".HomePageActivity" />
+        <activity
             android:name=".HomePageActivity"
             android:exported="false"
             android:label="Candidates List" />

@@ -22,6 +22,7 @@ public class InitialLoginActivity extends AppCompatActivity {
 
     EditText username, password;
     Button btnLogin;
+    EmployeeDBHelper DB;
 
     String correct_username = "1";
     String correct_password = "1";
@@ -37,12 +38,25 @@ public class InitialLoginActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById((R.id.password));
         btnLogin = findViewById(R.id.btnLogin);
+        DB= new EmployeeDBHelper(this);
 
         final LoadingDialog loadingDialog = new LoadingDialog(InitialLoginActivity.this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                String user = username.getText().toString();
+//                String pass = password.getText().toString();
+//
+//                if (user.equals("")||pass.equals("")){
+//                    Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
+//                    if (checkUserPass == true) {
+//                        Toast.makeText(InitialLoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
+
 
                 if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(
                         password.getText().toString())) {
@@ -89,10 +103,11 @@ public class InitialLoginActivity extends AppCompatActivity {
                                 "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
 
                     }
-                } else {
-                    Toast.makeText(InitialLoginActivity.this,
-                            "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
                 }
+//                } else {
+//                    Toast.makeText(InitialLoginActivity.this,
+//                            "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
+//                }
             }
         });
     }
