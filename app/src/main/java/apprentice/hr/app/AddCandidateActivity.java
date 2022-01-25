@@ -107,25 +107,25 @@ public class AddCandidateActivity extends AppCompatActivity {
             String dateInput = mDateFormat.getText().toString();
 
             if(editTextName.getText().toString().isEmpty()){
-                editTextName.setError("mandatory field");
+                editTextName.setError("compulsory field");
                 editTextName.setBackgroundResource(R.drawable.add_cand_error_bgr);
             }else {
                 editTextName.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
             if(editTextPhone.getText().toString().isEmpty()){
-                editTextPhone.setError("mandatory field");
+                editTextPhone.setError("compulsory field");
                 editTextPhone.setBackgroundResource(R.drawable.add_cand_error_bgr);
             }else {
                 editTextPhone.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
             if(editTextPosition.getText().toString().isEmpty()){
-                editTextPosition.setError("mandatory field");
+                editTextPosition.setError("compulsory field");
                 editTextPosition.setBackgroundResource(R.drawable.add_cand_error_bgr);
             }else {
                 editTextPosition.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
             if(mDateFormat.getText().toString().isEmpty()){
-                mDateFormat.setError("mandatory field");
+                mDateFormat.setError("compulsory field");
                 mDateFormat.setBackgroundResource(R.drawable.add_cand_error_bgr);
             }else {
                 mDateFormat.setBackgroundResource(R.drawable.add_cand_normal_bgr);
