@@ -19,7 +19,7 @@ public class EmployeeDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase EDB) {
-        EDB.execSQL("create Table users (username TEXT primary key, password TEXT)");
+        EDB.execSQL("create Table users (username TEXT primary key, password TEXT, status TEXT)");
     }
 
     @Override

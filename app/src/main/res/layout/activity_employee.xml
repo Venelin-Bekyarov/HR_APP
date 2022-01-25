@@ -7,6 +7,8 @@
     tools:context=".EmployeeActivity"
     android:padding="30sp">
 
+
+
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
@@ -19,17 +21,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextStatus"
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Status"
-        android:inputType="text"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+
 
     <EditText
         android:id="@+id/editTextPass"
@@ -41,7 +42,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextStatus" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
     <EditText
         android:id="@+id/editTextRetype"

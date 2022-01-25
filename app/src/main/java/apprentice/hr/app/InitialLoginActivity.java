@@ -24,8 +24,8 @@ public class InitialLoginActivity extends AppCompatActivity {
     Button btnLogin;
     EmployeeDBHelper DB;
 
-    String correct_username = "1";
-    String correct_password = "1";
+//    String correct_username = "1";
+//    String correct_password = "1";
 
 //    String correct_username = "HRTeam@edynamix.com";
 //    String correct_password = "HR_admin1";
@@ -46,26 +46,28 @@ public class InitialLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                String user = username.getText().toString();
-//                String pass = password.getText().toString();
-//
-//                if (user.equals("")||pass.equals("")){
-//                    Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
-//                    if (checkUserPass == true) {
-//                        Toast.makeText(InitialLoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
 
+                if (user.equals("")||pass.equals("")){
+                    Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
+                    if (checkUserPass == true) {
+                        Toast.makeText(InitialLoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
 
-                if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(
-                        password.getText().toString())) {
-                    Toast.makeText(InitialLoginActivity.this, "Empty data provided",
-                            Toast.LENGTH_LONG).show();
-                } else if (username.getText().toString().equals(correct_username)) {
-                    if (password.getText().toString().equals(correct_password)) {
-                        Toast.makeText(InitialLoginActivity.this, "Success",
-                                Toast.LENGTH_LONG).show();
+//------------------------------------------
+//                if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(
+//                        password.getText().toString())) {
+//                    Toast.makeText(InitialLoginActivity.this, "Empty data provided",
+//                            Toast.LENGTH_LONG).show();
+//                } else if (username.getText().toString().equals(correct_username)) {
+//                    if (password.getText().toString().equals(correct_password)) {
+//                        Toast.makeText(InitialLoginActivity.this, "Success",
+//                                Toast.LENGTH_LONG).show();
+//------------------------------------------
+
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(
                                 InitialLoginActivity.this);
@@ -104,10 +106,6 @@ public class InitialLoginActivity extends AppCompatActivity {
 
                     }
                 }
-//                } else {
-//                    Toast.makeText(InitialLoginActivity.this,
-//                            "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
-//                }
             }
         });
     }
