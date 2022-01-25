@@ -48,14 +48,17 @@ public class InitialLoginActivity extends AppCompatActivity {
 
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
+//                String stat = status.getText().toString();
 
                 if (user.equals("")||pass.equals("")){
                     Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
+//                    Boolean checkStatus = DB.checkStatus(status);
                     if (checkUserPass == true) {
                         Toast.makeText(InitialLoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
+
 
 //------------------------------------------
 //                if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(
