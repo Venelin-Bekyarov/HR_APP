@@ -21,8 +21,8 @@ public class InitialLoginActivity extends AppCompatActivity {
     EmployeeDBHelper DB;
 
 
-//    String correct_username = "HRTeam@edynamix.com";
-//    String correct_password = "HR_admin1";
+//    Username = "HRTeam@edynamix.com";
+//    Password = "HR_admin1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,27 +44,45 @@ public class InitialLoginActivity extends AppCompatActivity {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
-
                 if (user.equals("")||pass.equals("")){
                     Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
+                }
+                else if (user.equals("HRTeam@edynamix.com") && pass.equals("HR_admin1")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(
+                            InitialLoginActivity.this);
+                    builder.setMessage("Are you sure you want to log in?").setCancelable(
+                            false).setPositiveButton("Yes",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    loadingDialog.startLoadingDialog();
+                                    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent = new Intent(InitialLoginActivity.this, HomePageActivity.class);
+                                            startActivity(intent);
+                                            loadingDialog.dismissDialog();
+                                        }
+                                    }, 3000);
+
+                                }
+                            }).setNegativeButton("No",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    InitialLoginActivity.this.finish();
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    alert.getButton(alert.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FF0000"));
+                    alert.getButton(alert.BUTTON_POSITIVE).setTextColor(Color.parseColor("#008000"));
+
                 }
                 else {
                     Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
                     if (checkUserPass == true) {
                         Toast.makeText(InitialLoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
-
-
-//------------------------------------------
-//                if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(
-//                        password.getText().toString())) {
-//                    Toast.makeText(InitialLoginActivity.this, "Empty data provided",
-//                            Toast.LENGTH_LONG).show();
-//                } else if (username.getText().toString().equals(correct_username)) {
-//                    if (password.getText().toString().equals(correct_password)) {
-//                        Toast.makeText(InitialLoginActivity.this, "Success",
-//                                Toast.LENGTH_LONG).show();
-//------------------------------------------
-
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(
                                 InitialLoginActivity.this);
