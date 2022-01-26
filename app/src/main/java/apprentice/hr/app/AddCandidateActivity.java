@@ -41,12 +41,9 @@ public class AddCandidateActivity extends AppCompatActivity {
         add_candidate_data_btn = findViewById(R.id.add_candidate_data_btn);
 
 
-
-
         add_candidate_data_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
                 DatabaseHelper myDB = new DatabaseHelper(AddCandidateActivity.this);
@@ -73,14 +70,14 @@ public class AddCandidateActivity extends AppCompatActivity {
                         AddCandidateActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         onDateSetListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
 
             }
         });
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int year , int month, int dayOfMonth) {
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                 month = month + 1;
                 String date = dayOfMonth + "/" + month + "/" + year;
                 mDateFormat.setText(date);
@@ -93,6 +90,7 @@ public class AddCandidateActivity extends AppCompatActivity {
         mDateFormat.addTextChangedListener(AddTextWatcher);
 
     }
+
     private TextWatcher AddTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -106,28 +104,28 @@ public class AddCandidateActivity extends AppCompatActivity {
             String positionInput = editTextPosition.getText().toString();
             String dateInput = mDateFormat.getText().toString();
 
-            if(editTextName.getText().toString().isEmpty()){
+            if (editTextName.getText().toString().isEmpty()) {
                 editTextName.setError("compulsory field");
                 editTextName.setBackgroundResource(R.drawable.add_cand_error_bgr);
-            }else {
+            } else {
                 editTextName.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
-            if(editTextPhone.getText().toString().isEmpty()){
+            if (editTextPhone.getText().toString().isEmpty()) {
                 editTextPhone.setError("compulsory field");
                 editTextPhone.setBackgroundResource(R.drawable.add_cand_error_bgr);
-            }else {
+            } else {
                 editTextPhone.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
-            if(editTextPosition.getText().toString().isEmpty()){
+            if (editTextPosition.getText().toString().isEmpty()) {
                 editTextPosition.setError("compulsory field");
                 editTextPosition.setBackgroundResource(R.drawable.add_cand_error_bgr);
-            }else {
+            } else {
                 editTextPosition.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
-            if(mDateFormat.getText().toString().isEmpty()){
+            if (mDateFormat.getText().toString().isEmpty()) {
                 mDateFormat.setError("compulsory field");
                 mDateFormat.setBackgroundResource(R.drawable.add_cand_error_bgr);
-            }else {
+            } else {
                 mDateFormat.setBackgroundResource(R.drawable.add_cand_normal_bgr);
             }
 

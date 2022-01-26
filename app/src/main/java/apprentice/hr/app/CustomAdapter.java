@@ -38,7 +38,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.res_row, parent,false);
+        View view = inflater.inflate(R.layout.res_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -56,12 +56,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, UpdateActivity.class);
-                intent.putExtra("id",String.valueOf(candidate_id.get(position)));
-                intent.putExtra("name",String.valueOf(candidate_name.get(position)));
-                intent.putExtra("phone",String.valueOf(candidate_phone.get(position)));
-                intent.putExtra("position",String.valueOf(candidate_position.get(position)));
-                intent.putExtra("skills",String.valueOf(candidate_skills.get(position)));
-                intent.putExtra("date",String.valueOf(candidate_date.get(position)));
+                intent.putExtra("id", String.valueOf(candidate_id.get(position)));
+                intent.putExtra("name", String.valueOf(candidate_name.get(position)));
+                intent.putExtra("phone", String.valueOf(candidate_phone.get(position)));
+                intent.putExtra("position", String.valueOf(candidate_position.get(position)));
+                intent.putExtra("skills", String.valueOf(candidate_skills.get(position)));
+                intent.putExtra("date", String.valueOf(candidate_date.get(position)));
                 activity.startActivityForResult(intent, 1);
 
             }

@@ -2,14 +2,10 @@ package apprentice.hr.app;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -24,8 +20,6 @@ public class InitialLoginActivity extends AppCompatActivity {
     Button btnLogin;
     EmployeeDBHelper DB;
 
-//    String correct_username = "1";
-//    String correct_password = "1";
 
 //    String correct_username = "HRTeam@edynamix.com";
 //    String correct_password = "HR_admin1";
@@ -37,6 +31,7 @@ public class InitialLoginActivity extends AppCompatActivity {
 
         username = findViewById(R.id.username);
         password = findViewById((R.id.password));
+
         btnLogin = findViewById(R.id.btnLogin);
         DB= new EmployeeDBHelper(this);
 
@@ -48,14 +43,13 @@ public class InitialLoginActivity extends AppCompatActivity {
 
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
-//                String stat = status.getText().toString();
+
 
                 if (user.equals("")||pass.equals("")){
                     Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
-//                    Boolean checkStatus = DB.checkStatus(status);
                     if (checkUserPass == true) {
                         Toast.makeText(InitialLoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
 
@@ -105,7 +99,7 @@ public class InitialLoginActivity extends AppCompatActivity {
 
                     } else {
                         Toast.makeText(InitialLoginActivity.this,
-                                "Invalid Username and/or Password", Toast.LENGTH_LONG).show();
+                                "Invalid Username/Password and/or not an HR account", Toast.LENGTH_LONG).show();
 
                     }
                 }

@@ -38,9 +38,9 @@ public class HomePageActivity extends AppCompatActivity {
         });
         employee_button = findViewById(R.id.employee_button);
         employee_button.setOnClickListener(v -> {
-                    Intent intent = new Intent(HomePageActivity.this, EmployeeActivity.class);
-                    startActivity(intent);
-                });
+            Intent intent = new Intent(HomePageActivity.this, EmployeeActivity.class);
+            startActivity(intent);
+        });
 
         logout_button = findViewById(R.id.logout_button);
         logout_button.setOnClickListener(v -> {

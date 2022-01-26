@@ -27,18 +27,18 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context=context;
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                        " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_NAME + " TEXT, " +
-                        COLUMN_PHONE + " TEXT, " +
-                        COLUMN_POSITION + " TEXT, " +
-                        COLUMN_SKILLS + " TEXT, " +
-                        COLUMN_DATE + " TEXT);";
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NAME + " TEXT, " +
+                COLUMN_PHONE + " TEXT, " +
+                COLUMN_POSITION + " TEXT, " +
+                COLUMN_SKILLS + " TEXT, " +
+                COLUMN_DATE + " TEXT);";
         db.execSQL(query);
 
     }
@@ -49,7 +49,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addCandidate(String name, String phone, String position, String skills, String date){
+    void addCandidate(String name, String phone, String position, String skills, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -58,14 +58,15 @@ class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_POSITION, position);
         cv.put(COLUMN_SKILLS, skills);
         cv.put(COLUMN_DATE, date);
-        long result = db.insert(TABLE_NAME,null, cv);
-        if(result == -1) {
+        long result = db.insert(TABLE_NAME, null, cv);
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Added successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-    Cursor readAllData(){
+
+    Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -76,7 +77,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id, String name, String phone, String position, String skills, String date){
+    void updateData(String row_id, String name, String phone, String position, String skills, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_NAME, name);
@@ -88,17 +89,17 @@ class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1) {
             Toast.makeText(context, "Failed to Update.", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(context, "Successfully Updated!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void deleteOneLine(String row_id){
+    void deleteOneLine(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME,"_id=?", new String[]{row_id});
-        if (result == -1){
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if (result == -1) {
             Toast.makeText(context, "Failed to Delete!", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }

@@ -124,8 +124,6 @@ public class EmployeeActivity extends AppCompatActivity implements AdapterView.O
     }
 
 
-
-
     private boolean validateUsername() {
         String passwordInput = username.getText().toString().trim();
 

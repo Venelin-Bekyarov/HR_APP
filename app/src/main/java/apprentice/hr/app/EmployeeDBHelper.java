@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 public class EmployeeDBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
@@ -34,8 +32,9 @@ public class EmployeeDBHelper extends SQLiteOpenHelper {
         contentValues.put("password", password);
         contentValues.put("status", status);
         long result = EDB.insert("users", null, contentValues);
-        if (result == -1) return false;
-        else
+        if (result == -1) {
+            return false;
+        } else
             return true;
     }
 
@@ -52,21 +51,15 @@ public class EmployeeDBHelper extends SQLiteOpenHelper {
     public Boolean checkUsernamePassword(String username, String password) {
         SQLiteDatabase EDB = this.getWritableDatabase();
         Cursor cursor = EDB.rawQuery("Select * from users where username = ? and password = ?", new String[]{username, password});
-        if (cursor.getCount() > 0)
+        cursor.moveToFirst();
+        int statusIndex = cursor.getColumnIndex("status");
+        String status = cursor.getString(statusIndex);
+        if (cursor.getCount() > 0 && status.equals("HR")) {
             return true;
-        else
+        } else
             return false;
     }
 
-    public Boolean checkStatus(String status) {
-        SQLiteDatabase EDB = this.getWritableDatabase();
-        Cursor cursor = EDB.rawQuery("Select * from users where status = ?", new String[]{status});
-        if (cursor.getCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
 
 

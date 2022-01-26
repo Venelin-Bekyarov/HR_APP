@@ -158,7 +158,6 @@ public class UpdateActivity extends AppCompatActivity {
             String dateUpdt = mDateFormat.getText().toString();
 
 
-
             update_button.setEnabled(!nameUpdt.isEmpty() && !phoneUpdt.isEmpty() && !positionUpdt.isEmpty() && !dateUpdt.isEmpty());
         }
 
