@@ -45,7 +45,7 @@ public class InitialLoginActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
 
                 if (user.equals("")||pass.equals("")){
-                    Toast.makeText(InitialLoginActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InitialLoginActivity.this, "Please fill all the fields!", Toast.LENGTH_SHORT).show();
                 }
                 else if (user.equals("HRTeam@edynamix.com") && pass.equals("HR_admin1")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(
