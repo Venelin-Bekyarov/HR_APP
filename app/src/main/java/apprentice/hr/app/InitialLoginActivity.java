@@ -117,7 +117,7 @@ public class InitialLoginActivity extends AppCompatActivity {
 
                     } else {
                         Toast.makeText(InitialLoginActivity.this,
-                                "Invalid Username/Password and/or not an HR account", Toast.LENGTH_LONG).show();
+                                "Invalid Username/Password and/or not an HR account!", Toast.LENGTH_LONG).show();
 
                     }
                 }
